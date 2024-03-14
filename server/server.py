@@ -3,11 +3,16 @@ from flask_cors import CORS
 
 
 app = Flask(__name__)
-
+cors = CORS(app)
 @app.route("/api/home", methods=['GET'])
 def return_home():
     return jsonify({
         'message': "WELCOME"
+    })
+@app.route("/api/dev", methods=['GET'])
+def return_dev():
+    return jsonify({
+        'message': "For Dev Use Only"
     })
 
 if __name__ == "__main__":
