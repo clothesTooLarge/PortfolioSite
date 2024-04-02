@@ -9,6 +9,25 @@ def return_home():
     return jsonify({
         'message': "WELCOME"
     })
+
+@app.route("/api/art", methods=['GET'])
+def return_art():
+    return jsonify({
+        'message': "ART"
+    })
+
+@app.route("/api/contact", methods=['GET'])
+def return_contact():
+    return jsonify({
+        'message': "Contact Us"
+    })
+
+@app.route("/api/about", methods=['GET'])
+def return_about():
+    return jsonify({
+        'message': "About Us"
+    })
+
 @app.route("/api/dev", methods=['GET'])
 def return_dev():
     return jsonify({

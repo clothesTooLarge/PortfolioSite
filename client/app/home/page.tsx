@@ -1,6 +1,6 @@
 import React from "react";
 import { setMaxIdleHTTPParsers } from "http";
-
+import Ribbon from "../components/Ribbon";
 
 
 
@@ -11,6 +11,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <Ribbon />
      <h1>{title.message}</h1>
     </main>
   );
