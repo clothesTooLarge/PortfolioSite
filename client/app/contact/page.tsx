@@ -6,7 +6,7 @@ import Ribbon from "../components/Ribbon";
 
 export default async function Art() {
     console.log("ART")
-    const res = await fetch('http://127.0.0.1:8080/api/art');
+    const res = await fetch('http://127.0.0.1:8080/api/contact');
     const title = await res.json();
 
     return (

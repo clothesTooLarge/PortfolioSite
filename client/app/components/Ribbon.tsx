@@ -4,51 +4,39 @@
 
 import React from "react";
 import { redirect } from "next/navigation";
-import "/home/clothes/PortfolioSite/client/app/globals.css";
+import { useRouter } from 'next/navigation'
 
 export default async function Ribbon() {
+
+    const router = useRouter();
+
     function ribbonClick(e: MouseEvent) {
-        var button = e.target.className;
+        var button = e.target.id;
         console.log(button)
-        switch(button)
-        {
+        switch (button) {
             case "Ribbon_Home":
-                console.log("Rerouting to ", button);
-
+                router.push("/home");
+                break;
             case "Ribbon_About":
-                console.log("Rerouting to ", button);
-
+                router.push("/about");
+                break;
             case "Ribbon_Art":
-                console.log("Rerouting to ", button);
-                return {redirect:{
-                    permanent: false,
-                    path: '/art'
-                }}
+                router.push("/art");
+                break;
             case "Ribbon_Contact":
-                console.log("Rerouting to ", button);
-                
+                router.push("/contact");
+                break;
 
         }
     }
-  
+
     return (
-        <ul className="ribbon">
-            <li>
-                <button className="Ribbon_Home" onClick={ribbonClick}>Home</button>
-            </li>
-            <li>
-                <button className="Ribbon_About" onClick={ribbonClick}>About</button>
-            </li>
-            <li>
-                <button className="Ribbon_Art" onClick={ribbonClick}>Art</button>
-            </li>
-            <li>
-                <button className="Ribbon_Contact" onClick={ribbonClick}>Contact</button>
-            </li>
-            
-            
-            
-        </ul>
-    
+        <header className="flex justify-evenly py-5 bg-black p-0 text-white font-semibold">
+            <button id="Ribbon_Home" className="" onClick={ribbonClick}>Home</button>
+            <button id="Ribbon_About" className="" onClick={ribbonClick}>About</button>
+            <button id="Ribbon_Art" className="" onClick={ribbonClick}>Art</button>
+            <button id="Ribbon_Contact" className="" onClick={ribbonClick}>Contact</button>
+        </header>
+
     );
-  } 
+} 

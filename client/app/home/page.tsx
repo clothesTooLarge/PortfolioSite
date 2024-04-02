@@ -10,11 +10,13 @@ export default async function Home() {
   const title = await res.json();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Ribbon />
-     <h1>{title.message}</h1>
-    </main>
-  );
+    <div>
+        <Ribbon />
+        <main className="flex min-h-screen flex-col items-center justify-between p-10">
+            <h1>{title.message}</h1>
+        </main>
+    </div>
+  )
 }
 
 

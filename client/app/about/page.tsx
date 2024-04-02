@@ -13,9 +13,12 @@ export default async function Art() {
     const title = await res.json();
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <div>
             <Ribbon />
-            <h1>{title.message}</h1>
-        </main>
+            <main className="flex min-h-screen flex-col items-center justify-between p-10">
+                <h1>{title.message}</h1>
+            </main>
+        </div>
+
     );
 }
