@@ -7,13 +7,13 @@ cors = CORS(app)
 @app.route("/api/home", methods=['GET'])
 def return_home():
     return jsonify({
-        'message': "WELCOME"
+        'message': "Welcome"
     })
 
 @app.route("/api/art", methods=['GET'])
 def return_art():
     return jsonify({
-        'message': "ART"
+        'message': "Art"
     })
 
 @app.route("/api/contact", methods=['GET'])
