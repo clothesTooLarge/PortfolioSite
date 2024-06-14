@@ -1,20 +1,43 @@
-import psycopg
+import psycopg as pg
+import logging
 
-with psycopg.connect('dbname=websiteDB user=postgres password=password host=localhost') as conn:
+def connect():
 
-
-    with conn.cursor() as cur:
-
-        cur.execute("""
-            INSERT INTO posts (title, body, image)
-            VALUES ('a', 'b', 'c')
-            """)
-
-        cur.execute("""
-            SELECT * FROM postInfo;
-            """)
+    try:
+        conn = pg.connect(
+            host="localhost",
+            dbname="test",
+            user="admin",
+            password="1234"
+        )
         
-        for record in cur:
-            print(record)
+        with conn.cursor() as cur:
+                cur.execute("""
+                    CREATE TABLE test (
+                        id serial PRIMARY KEY,
+                        num integer,
+                        image text)      
+                """)
+                
+                cur.execute(
+                    "INSERT INTO test (num, image) VALUES (%s,%s)",
+                    (100, "HELLO")
+                            )
+                
+                x = cur.execute("SELECT * FROM test")
+                
+                for record in x:
+                    print(record)
+                    
+                conn.commit()
+            
+        print('success')
+    except:
+        logging.exception('')
+        
 
-    conn.commit()
+
+
+
+if __name__ == '__main__':
+    connect()
