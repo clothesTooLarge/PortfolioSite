@@ -6,16 +6,15 @@ import React from "react";
 import { redirect } from "next/navigation";
 import { useRouter } from 'next/navigation'
 
-export default async function Ribbon() {
+export default function Ribbon() {
 
     const router = useRouter();
 
     function ribbonClick(e: MouseEvent) {
         var button = e.target.id;
-        console.log(button)
         switch (button) {
             case "Ribbon_Home":
-                router.push("/home");
+                router.push("/");
                 break;
             case "Ribbon_About":
                 router.push("/about");
