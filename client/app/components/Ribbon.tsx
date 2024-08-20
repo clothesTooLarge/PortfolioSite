@@ -10,8 +10,10 @@ export default function Ribbon() {
 
     const router = useRouter();
 
-    function ribbonClick(e: MouseEvent) {
-        var button = e.target.id;
+    function ribbonClick(e: React.MouseEvent<HTMLButtonElement>) {
+        if(!e.target) return;
+        const target = e.target as HTMLTextAreaElement;
+        var button = target.id;
         switch (button) {
             case "Ribbon_Home":
                 router.push("/");
@@ -31,10 +33,10 @@ export default function Ribbon() {
 
     return (
         <header className="flex justify-evenly py-5 bg-black p-0 text-white font-semibold">
-            <button id="Ribbon_Home" className="" onClick={ribbonClick}>Home</button>
-            <button id="Ribbon_About" className="" onClick={ribbonClick}>About</button>
-            <button id="Ribbon_Art" className="" onClick={ribbonClick}>Art</button>
-            <button id="Ribbon_Contact" className="" onClick={ribbonClick}>Contact</button>
+            <button id="Ribbon_Home" className="" onClick={(e) => {ribbonClick(e)}}>Home</button>
+            <button id="Ribbon_About" className="" onClick={(e) => {ribbonClick(e)}}>About</button>
+            <button id="Ribbon_Art" className="" onClick={(e) => {ribbonClick(e)}}>Art</button>
+            <button id="Ribbon_Contact" className="" onClick={(e) => {ribbonClick(e)}}>Contact</button>
         </header>
 
     );
